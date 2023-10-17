@@ -46,14 +46,13 @@ public class BookDTO
 	}
 
 
-	public boolean doDiscount(Double discount)
+	public void doDiscount(Double discountPercentage)
 	{
-		if (discount > 0.3)
+		if (discountPercentage > 0.3)
 		{
 			throw new IllegalArgumentException("O desconto não pode ser maior que 30%");
 		}
-		this.price -= this.price * discount;
-		return true;
+		this.price -= this.price * discountPercentage;
 	}
 
 

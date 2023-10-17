@@ -1,14 +1,20 @@
-package bookstote.entities;
+package bookstore.entities;
 
 import bookstore.builders.BookBuilder;
 import bookstore.entities.AuthorDTO;
 import bookstore.entities.BookDTO;
 import org.junit.Assert;
 import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 
 public class BookDTOTest
 {
+
+	@Rule
+	public ExpectedException exception = ExpectedException.none();
+
 	private AuthorDTO author;
 	private BookDTO book;
 	@Before
@@ -29,9 +35,15 @@ public class BookDTOTest
 			Assert.assertEquals(result, expect, 0);
 	}
 
-	@Test(expected = IllegalArgumentException.class)
+	@Test
 	public void mustThrowExceptionInDiscount ()
 	{
+
+		exception.expect(IllegalArgumentException.class);
+		exception.expectMessage("O desconto não pode ser maior que 30%");
+
 		book.doDiscount(0.4);
+
+
 	}
 }
