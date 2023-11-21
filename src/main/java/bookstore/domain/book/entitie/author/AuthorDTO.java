@@ -1,4 +1,4 @@
-package bookstore.entities;
+package bookstore.domain.book.entitie.author;
 
 import java.util.Objects;
 
@@ -7,10 +7,6 @@ public class AuthorDTO
 	private String name;
 	private String email;
 	private String cpf;
-
-	public AuthorDTO()
-	{
-	}
 
 	public AuthorDTO(String name, String email, String cpf)
 	{

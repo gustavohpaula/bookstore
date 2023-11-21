@@ -1,9 +1,11 @@
 package bookstore.service;
 
-import bookstore.entities.AuthorDTO;
-import bookstore.entities.BookDTO;
-import bookstore.entities.EBookDTO;
-import bookstore.entities.PhysicalBookDTO;
+import bookstore.domain.book.entitie.BookDTO;
+import bookstore.domain.book.entitie.EBookDTO;
+import bookstore.domain.book.entitie.MiniBookDTO;
+import bookstore.domain.book.entitie.PhysicalBookDTO;
+import bookstore.domain.book.entitie.author.AuthorDTO;
+import bookstore.domain.service.ShoppingCart;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -22,7 +24,7 @@ public class ShoppingCartTest
 	{
 		BookDTO book = new PhysicalBookDTO("Java 8 pratico", 59.90, author);
 		ShoppingCart cart = new ShoppingCart();
-		cart.addBook(book);
+		cart.addItem(book);
 
 		Assert.assertTrue(cart.getBookList().contains(book));
 	}
@@ -32,16 +34,16 @@ public class ShoppingCartTest
 	{
 		BookDTO book = new EBookDTO("Java 8 pratico", 59.90, author, "java8");
 		ShoppingCart cart = new ShoppingCart();
-		cart.addBook(book);
+		cart.addItem(book);
 
 		Assert.assertTrue(cart.getBookList().contains(book));
 	}
 	@Test
-	public void mustAddBook ()
+	public void mustAddMiniBook ()
 	{
-		BookDTO book = new BookDTO("Java 8 pratico", 59.90, author);
+		BookDTO book = new MiniBookDTO("Java 8 pratico", 59.90, author);
 		ShoppingCart cart = new ShoppingCart();
-		cart.addBook(book);
+		cart.addItem(book);
 
 		Assert.assertTrue(cart.getBookList().contains(book));
 	}

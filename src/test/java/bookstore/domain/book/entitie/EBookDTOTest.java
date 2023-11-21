@@ -1,8 +1,6 @@
-package bookstore.entities;
+package bookstore.domain.book.entitie;
 
-import bookstore.builders.BookBuilder;
-import bookstore.entities.AuthorDTO;
-import bookstore.entities.EBookDTO;
+import bookstore.domain.book.entitie.author.AuthorDTO;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Rule;
@@ -15,12 +13,11 @@ public class EBookDTOTest
 	@Rule
 	public ExpectedException exception = ExpectedException.none();
 
-	private AuthorDTO author;
 	private EBookDTO book;
 	@Before
 	public void setUp ()
 	{
-		author = new AuthorDTO("Rodrigo Turini", "rodrigo.turini@caelum.com.br", "123456789");
+		AuthorDTO author = new AuthorDTO("Rodrigo Turini", "rodrigo.turini@caelum.com.br", "123456789");
 		book = new EBookDTO("Java 8 pratico", 59.90, author, "watherMark");
 	}
 

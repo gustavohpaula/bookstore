@@ -1,20 +1,17 @@
-package bookstore.entities;
+package bookstore.domain.book.entitie;
 
-import bookstore.entities.AuthorDTO;
-import bookstore.entities.EBookDTO;
-import bookstore.entities.PhysicalBookDTO;
+import bookstore.domain.book.entitie.author.AuthorDTO;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
 public class PhysicalBookDTOTest
 {
-	private AuthorDTO author;
 	private PhysicalBookDTO book;
 	@Before
 	public void setUp ()
 	{
-		author = new AuthorDTO("Rodrigo Turini", "rodrigo.turini@caelum.com.br", "123456789");
+		AuthorDTO author = new AuthorDTO("Rodrigo Turini", "rodrigo.turini@caelum.com.br", "123456789");
 		book = new PhysicalBookDTO("Java 8 pratico", 59.90, author);
 	}
 
